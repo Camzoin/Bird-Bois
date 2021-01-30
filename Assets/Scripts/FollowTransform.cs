@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+// Follow a given transform
+public class FollowTransform : MonoBehaviour
 {
-    enum sceneNames
-    {
-
-    }
+    public Transform followTarget;
+    public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +16,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = followTarget.position + offset;
     }
 }
