@@ -59,9 +59,9 @@ public class BirdControl : MonoBehaviour
     void AirControl()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float altitude = Input.GetAxisRaw("Vertical");
         rb.useGravity = false;
-        Vector3 direction = new Vector3(horizontal, vertical);
+        Vector3 direction = new Vector3(horizontal, altitude);
         direction.Normalize();
 
         transform.Translate(new Vector3(direction.x * turnSpeed, direction.y * turnSpeed, forwardSpeed) * Time.fixedDeltaTime);
@@ -71,17 +71,16 @@ public class BirdControl : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
             rot.eulerAngles = new Vector3(rot.eulerAngles.x, rot.eulerAngles.y, 0);
-            Quaternion.Lerp(transform.rotation, rot, 0.1f);
-            transform.rotation = rot;
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime);
         }
     }
 
     void GroundControl()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float forward = Input.GetAxisRaw("Vertical");
         rb.useGravity = true;
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        Vector3 direction = new Vector3(horizontal, 0, forward);
         direction.Normalize();
 
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
