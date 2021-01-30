@@ -5,11 +5,12 @@ using UnityEngine;
 public class BirdControl : MonoBehaviour
 {
     public Rigidbody rb;
+    public Animator animator;
     public bool inAir = true;
 
     #region Air Fields
     public float forwardSpeed = 1f;
-    public float turnSpeed = 0.2f;
+    public float turnSpeed = 1f;
     #endregion
 
     #region Ground Fields
