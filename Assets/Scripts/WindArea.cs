@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WindArea : MonoBehaviour
 {
-    [Header("GustTiming")]
+    [Header("Gust Timing")]
     public float startDelay;
     public float cooldown;
     public float gustScalar;
+    public bool randomizeWind;
     float timer;
     int gustCounter;
 
@@ -15,25 +16,26 @@ public class WindArea : MonoBehaviour
     public float strength;
     public float strengthMultiplier;
     public Vector3 direction;
-    float originalStrength;
 
-    public void Start()
+    protected virtual void Start()
     {
         timer = startDelay;
-        originalStrength = strength;
     }
-    public void Update()
+    protected virtual void Update()
     {
-        if (timer > 0)
+        if (randomizeWind)
         {
-            timer -= Time.deltaTime;
-        }
-        else
-        {
-            strength = Random.Range(0f, 1f) * strengthMultiplier;
-            direction = Random.insideUnitSphere;
-            timer = cooldown;
-            gustCounter++;
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                strength = Random.Range(0f, 1f) * strengthMultiplier;
+                direction = Random.insideUnitSphere;
+                timer = cooldown;
+                gustCounter++;
+            }
         }
         strengthMultiplier = Mathf.Sqrt(gustCounter) * gustScalar;
     }
