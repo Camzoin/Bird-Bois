@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rock
+  m_Name: Tree
   m_Shader: {fileID: -6465566751694194690, guid: 181a05e2165f9c0439763cb32e928dcc,
     type: 3}
   m_ShaderKeywords: 
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_D5A98D67:
-        m_Texture: {fileID: 2800000, guid: 11441b89167af8e4082360da701dc44c, type: 3}
+        m_Texture: {fileID: 2800000, guid: bef35863ad68e654a89692397f3809c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
