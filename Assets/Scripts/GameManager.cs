@@ -22,12 +22,13 @@ public class GameManager : MonoBehaviour
     {
         if (currentGoal.goalHit)
         {
-            Debug.Log("Hit");
+
         }
     }
 
     public void LoadScene(string sceneName)
     {
+        RenderSettings.skybox.SetFloat("_Blend", 0);
         SceneManager.LoadScene(sceneName);
     }
 }
