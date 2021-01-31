@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public string[] sceneNames;
+    [SerializeField]
+    public Animator canvasFadeAnim;
+    [SerializeField]
+    public Goal currentGoal;
 
     public static GameManager instance;
-    Goal currentGoal;
-    bool sweptByStorm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +27,8 @@ public class GameManager : MonoBehaviour
         {
             if (currentGoal.goalHit)
             {
-
+                canvasFadeAnim.SetTrigger("Fail");
             }
-        }
-        if (sweptByStorm)
-        {
-            LoadScene("Main Menu");
         }
     }
 

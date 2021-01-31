@@ -12,7 +12,7 @@ public class CanvasFade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameManager.instance.canvasFadeAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
