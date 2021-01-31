@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AnimChangeScene : StateMachineBehaviour
 {
+    public float skyboxBlend = 0;
     public string sceneName;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -22,6 +23,7 @@ public class AnimChangeScene : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        RenderSettings.skybox.SetFloat("_Blend", skyboxBlend);
         SceneManager.LoadScene(sceneName);
     }
 

@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b27f6d32e7d93d45b0cdbb1986cd4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skyboxBlend: 0
   sceneName: Fallen Bird
 --- !u!1102 &-5586670374351367095
 AnimatorState:
@@ -142,6 +143,22 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5436011098191167286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3750eccd989d7b741a68f7248f2ff7c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicManagerAudioSource: 1
+  exposedParameter: crossVol
+  fadeDuration: 4
+  targetVolume: 1
 --- !u!1102 &7176191252422448688
 AnimatorState:
   serializedVersion: 5
@@ -154,7 +171,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2488542539040714486}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 5436011098191167286}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

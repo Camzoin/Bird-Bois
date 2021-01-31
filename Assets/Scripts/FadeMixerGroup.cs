@@ -20,6 +20,7 @@ public static class FadeMixerGroup
             audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
             yield return null;
         }
+
         yield break;
     }
 }
