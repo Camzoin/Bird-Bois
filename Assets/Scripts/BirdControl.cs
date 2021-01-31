@@ -9,8 +9,14 @@ public class BirdControl : MonoBehaviour
     public bool inAir = true;
 
     #region Air Fields
-    [SerializeField] [Range(3f, 10f)] float forwardSpeed = 3f;
+    [SerializeField] float forwardSpeed = 10f;
     [SerializeField] float turnSpeed = 1f;
+
+    [SerializeField] float minSpeed = 3f;
+    [SerializeField] float maxSpeed = 15f;
+
+    float accel = 3f;
+    float decel = 3f;
     #endregion
 
     #region Ground Fields
@@ -19,6 +25,8 @@ public class BirdControl : MonoBehaviour
     [SerializeField] float jumpAmount = 5f;
     bool onGround = true;
     #endregion
+
+    float seconds = 0f;
 
     #region Monobehaviour Callbacks
     // Start is called before the first frame update
@@ -37,6 +45,13 @@ public class BirdControl : MonoBehaviour
         {
             GroundControl();
         }
+
+        //seconds += Time.fixedDeltaTime;
+        //if (seconds >= 60)
+        //{
+        //    animator.SetTrigger("Flap");
+        //    seconds = 0f;
+        //}
     }
 
     void OnCollisionEnter(Collision collision)
@@ -62,13 +77,13 @@ public class BirdControl : MonoBehaviour
         float altitude = Input.GetAxisRaw("Vertical");
         rb.useGravity = false;
         
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
         {
-            forwardSpeed--;
+            forwardSpeed -= decel * Time.fixedDeltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
         {
-            forwardSpeed++;
+            forwardSpeed += accel * Time.fixedDeltaTime;
         }
         
         Vector3 direction = new Vector3(horizontal, altitude);
@@ -82,6 +97,10 @@ public class BirdControl : MonoBehaviour
         {
             rot.eulerAngles = new Vector3(rot.eulerAngles.x, rot.eulerAngles.y, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime);
+        }
+        else
+        {
+
         }
     }
 
