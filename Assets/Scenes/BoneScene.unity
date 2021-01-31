@@ -374,5 +374,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9944027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.105656646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481834384139591482, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 12.13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a312ffe2c5a09a4e90a0918206c9caf, type: 3}
