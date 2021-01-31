@@ -71,22 +71,33 @@ public class BirdControl : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float altitude = Input.GetAxisRaw("Vertical");
         rb.useGravity = false;
+
+        bool playFlap = false;
         
         if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
         {
             forwardSpeed -= decel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
-            audioSource.Play();
+            playFlap = true;
         }
         if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
         {
             forwardSpeed += accel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
-            audioSource.Play();
+            playFlap = true;
         }
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
         {
             animator.SetBool("Flap", false);
+            playFlap = false;
+        }
+
+        if (playFlap)
+        {
+            audioSource.Play();
+        }
+        else
+        {
             audioSource.Stop();
         }
         
