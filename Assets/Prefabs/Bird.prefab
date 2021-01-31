@@ -1667,7 +1667,6 @@ GameObject:
   - component: {fileID: 4481834382823019276}
   - component: {fileID: 4481834382823019274}
   - component: {fileID: 4481834382823019275}
-  - component: {fileID: 7555088414826233331}
   - component: {fileID: 4481834382823019272}
   - component: {fileID: 4481834382823019273}
   m_Layer: 0
@@ -1722,25 +1721,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &7555088414826233331
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4481834382823019286}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1af0e17d12fa14240939ae764d5c332a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4481834382823019272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,7 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4481834382823019274}
-  animator: {fileID: 7555088414826233331}
+  animator: {fileID: 6468241111425415013}
   inAir: 1
   forwardSpeed: 10
   turnSpeed: 1

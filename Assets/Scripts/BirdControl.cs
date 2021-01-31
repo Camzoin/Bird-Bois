@@ -26,8 +26,6 @@ public class BirdControl : MonoBehaviour
     bool onGround = true;
     #endregion
 
-    float seconds = 0f;
-
     #region Monobehaviour Callbacks
     // Start is called before the first frame update
     void Start()
@@ -46,12 +44,6 @@ public class BirdControl : MonoBehaviour
             GroundControl();
         }
 
-        seconds += Time.fixedDeltaTime;
-        if (seconds >= 30)
-        {
-            animator.SetTrigger("Flap");
-            seconds = 0f;
-        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -80,10 +72,16 @@ public class BirdControl : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
         {
             forwardSpeed -= decel * Time.fixedDeltaTime;
+            animator.SetBool("Flap", true);
         }
         if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
         {
             forwardSpeed += accel * Time.fixedDeltaTime;
+            animator.SetBool("Flap", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
+        {
+            animator.SetBool("Flap", false);
         }
         
         Vector3 direction = new Vector3(horizontal, altitude);
