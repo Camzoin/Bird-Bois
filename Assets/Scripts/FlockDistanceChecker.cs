@@ -10,6 +10,12 @@ public class FlockDistanceChecker : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource thunder;
+
+    public AudioClip thunderSound;
+
+    bool needsToPlay = false, hasPlayed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,13 @@ public class FlockDistanceChecker : MonoBehaviour
         {
             //fail
             animator.SetTrigger("Fail");
+            needsToPlay = true;
+        }
+
+        if(needsToPlay == true && hasPlayed == false)
+        {
+            hasPlayed = true;
+            thunder.PlayOneShot(thunderSound);
         }
     }
 }
