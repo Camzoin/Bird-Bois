@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 297155110580039230}
   - component: {fileID: 297155110580039228}
+  - component: {fileID: -2575962736916352758}
   - component: {fileID: 297155110580039226}
   - component: {fileID: 297155110580039229}
   - component: {fileID: 297155110580039227}
@@ -76,6 +77,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &-2575962736916352758
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297155110580039224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1af0e17d12fa14240939ae764d5c332a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &297155110580039226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 297155110580039226}
-  animator: {fileID: 0}
+  animator: {fileID: -2575962736916352758}
   inAir: 1
   forwardSpeed: 3
   turnSpeed: 2

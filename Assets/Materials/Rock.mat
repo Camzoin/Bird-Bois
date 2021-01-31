@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player Bird
+  m_Name: Rock
   m_Shader: {fileID: -6465566751694194690, guid: 181a05e2165f9c0439763cb32e928dcc,
     type: 3}
   m_ShaderKeywords: 
