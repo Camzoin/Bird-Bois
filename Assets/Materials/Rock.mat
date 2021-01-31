@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player Bird 1
+  m_Name: Player Bird
   m_Shader: {fileID: -6465566751694194690, guid: 181a05e2165f9c0439763cb32e928dcc,
     type: 3}
   m_ShaderKeywords: 
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_D5A98D67:
-        m_Texture: {fileID: 2800000, guid: 8875a97262e69b4408ccac11ff15462a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4009a5b5aee2c104ba207fc068d9c571, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -87,6 +87,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HueOffset: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
