@@ -46,12 +46,12 @@ public class BirdControl : MonoBehaviour
             GroundControl();
         }
 
-        //seconds += Time.fixedDeltaTime;
-        //if (seconds >= 60)
-        //{
-        //    animator.SetTrigger("Flap");
-        //    seconds = 0f;
-        //}
+        seconds += Time.fixedDeltaTime;
+        if (seconds >= 30)
+        {
+            animator.SetTrigger("Flap");
+            seconds = 0f;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
