@@ -92,6 +92,8 @@ public class BirdControl : MonoBehaviour
             playFlap = false;
         }
 
+        // another way would be to create an aniamtion clip using the Flab aniamtion
+        // then create a public method and put the code below in that method and have the clip call the method at a specific time in the clip
         if (!audioSource.isPlaying)
         {
             if (playFlap)
@@ -102,10 +104,8 @@ public class BirdControl : MonoBehaviour
             {
                 audioSource.Stop();
             }
-
         }
 
-        
         Vector3 direction = new Vector3(horizontal, altitude);
         direction.Normalize();
 
