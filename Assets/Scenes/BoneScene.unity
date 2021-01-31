@@ -193,6 +193,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 297155110580039231, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 297155110580039231, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
+        type: 3}
+      propertyPath: forwardSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 297155111815527147, guid: 7a312ffe2c5a09a4e90a0918206c9caf,
         type: 3}
       propertyPath: m_IsActive
