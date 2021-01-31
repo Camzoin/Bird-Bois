@@ -9,14 +9,14 @@ public class BirdControl : MonoBehaviour
     public bool inAir = true;
 
     #region Air Fields
-    public float forwardSpeed = 1f;
-    public float turnSpeed = 1f;
+    [SerializeField] [Range(3f, 10f)] float forwardSpeed = 3f;
+    [SerializeField] float turnSpeed = 1f;
     #endregion
 
     #region Ground Fields
-    public float groundSpeed = 1f;
-    public float groundRotateSpeed = 1f;
-    public float jumpAmount = 5f;
+    [SerializeField] float groundSpeed = 1f;
+    [SerializeField] float groundRotateSpeed = 1f;
+    [SerializeField] float jumpAmount = 5f;
     bool onGround = true;
     #endregion
 
@@ -61,6 +61,16 @@ public class BirdControl : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float altitude = Input.GetAxisRaw("Vertical");
         rb.useGravity = false;
+        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            forwardSpeed--;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            forwardSpeed++;
+        }
+        
         Vector3 direction = new Vector3(horizontal, altitude);
         direction.Normalize();
 
