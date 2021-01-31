@@ -71,25 +71,41 @@ public class BirdControl : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float altitude = Input.GetAxisRaw("Vertical");
         rb.useGravity = false;
+
+        bool playFlap = false;
         
         if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
         {
             forwardSpeed -= decel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
-            audioSource.Play();
+            playFlap = true;
         }
         if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
         {
             forwardSpeed += accel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
-            audioSource.Play();
+            playFlap = true;
         }
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
         {
             animator.SetBool("Flap", false);
-            audioSource.Stop();
+            playFlap = false;
         }
-        
+
+        // another way would be to create an aniamtion clip using the Flab aniamtion
+        // then create a public method and put the code below in that method and have the clip call the method at a specific time in the clip
+        if (!audioSource.isPlaying)
+        {
+            if (playFlap)
+            {
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.Stop();
+            }
+        }
+
         Vector3 direction = new Vector3(horizontal, altitude);
         direction.Normalize();
 

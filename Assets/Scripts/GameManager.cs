@@ -37,4 +37,9 @@ public class GameManager : MonoBehaviour
         RenderSettings.skybox.SetFloat("_Blend", 0);
         SceneManager.LoadScene(sceneName);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

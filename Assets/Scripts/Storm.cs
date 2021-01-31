@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Storm : MonoBehaviour
 {
+    public AudioClip[] stormAudio;
     public Light directionalLight;
     public float stormDelay;
 
     ParticleSystem stormSystem;
     Material skyboxMaterial;
+    [SerializeField]
+    AudioSource track1Source, track2Source;
     float skyBoxBlend;
     float timer;
     bool stormPlayed;
@@ -34,8 +38,26 @@ public class Storm : MonoBehaviour
             stormSystem.Play(true);
             StartCoroutine(LerpLightIntensity(directionalLight.intensity, 0.5f, 1));
             StartCoroutine(LerpBlend(0, 1, 1));
+            StartCoroutine(PlayStormAudioSequence());
             stormPlayed = true;
         }
+        
+    }
+
+    void PlayAudio(AudioSource source, AudioClip audioClip)
+    {
+        source.clip = audioClip;
+        source.Play();
+    }
+
+    IEnumerator PlayStormAudioSequence()
+    {
+        track1Source.Play();
+        yield return new WaitForSeconds(16f);
+        StartCoroutine(FadeMixerGroup.StartFade(track1Source.outputAudioMixerGroup.audioMixer, "stormVol1", 5f, 0));
+        Debug.Log("Music");
+        track2Source.Play();
+        StartCoroutine(FadeMixerGroup.StartFade(track1Source.outputAudioMixerGroup.audioMixer, "stormVol2", 2f, 1));
     }
 
     IEnumerator LerpBlend(float start, float end, float duration)

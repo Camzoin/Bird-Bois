@@ -30,7 +30,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Title_Anim
-  m_Speed: 0.11133334
+  m_Speed: 0.0167
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
