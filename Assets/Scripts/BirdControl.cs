@@ -6,7 +6,8 @@ public class BirdControl : MonoBehaviour
 {
     public Rigidbody rb;
     public Animator animator;
-    public AudioSource audioSource;
+    public AudioSource flapSource;
+    public AudioSource walkSource;
     public bool inAir = true;
 
     #region Air Fields
@@ -15,6 +16,9 @@ public class BirdControl : MonoBehaviour
 
     [SerializeField] float minSpeed = 3f;
     [SerializeField] float maxSpeed = 15f;
+
+    float horizontal;
+    float vertical;
 
     float accel = 3f;
     float decel = 3f;
@@ -34,17 +38,100 @@ public class BirdControl : MonoBehaviour
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (inAir)
         {
-            AirControl();
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+            rb.useGravity = false;
+
+            bool playFlap = false;
+
+            if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
+            {
+                forwardSpeed -= decel * Time.fixedDeltaTime;
+                animator.SetBool("Flap", true);
+                playFlap = true;
+            }
+            if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
+            {
+                forwardSpeed += accel * Time.fixedDeltaTime;
+                animator.SetBool("Flap", true);
+                playFlap = true;
+            }
+            if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
+            {
+                animator.SetBool("Flap", false);
+                playFlap = false;
+            }
+
+            // another way would be to create an aniamtion clip using the Flab aniamtion
+            // then create a public method and put the code below in that method and have the clip call the method at a specific time in the clip
+            if (!flapSource.isPlaying)
+            {
+                if (playFlap)
+                {
+                    flapSource.Play();
+                }
+                else
+                {
+                    flapSource.Stop();
+                }
+            }
+
             animator.SetBool("onGround", false);
         }
         else
         {
-            GroundControl();
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+            rb.useGravity = true;
+
+            bool playWalk = false;
+
+            if (Input.GetKeyDown(KeyCode.Space) && onGround)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, jumpAmount, rb.velocity.z);
+                onGround = false;
+            }
+
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                playWalk = true;
+            }
+            else
+            {
+                playWalk = false;
+            }
+
+            // another way would be to create an aniamtion clip using the Flab aniamtion
+            // then create a public method and put the code below in that method and have the clip call the method at a specific time in the clip
+            if (!walkSource.isPlaying)
+            {
+                if (playWalk)
+                {
+                    walkSource.Play();
+                }
+                else
+                {
+                    walkSource.Stop();
+                }
+            }
+
             animator.SetBool("onGround", true);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (inAir)
+        {
+            AirControl(horizontal, vertical);
+        }
+        else
+        {
+            GroundControl(horizontal, vertical);
         }
 
     }
@@ -66,47 +153,9 @@ public class BirdControl : MonoBehaviour
     #endregion
 
     #region Private Methods
-    void AirControl()
+    void AirControl(float horValue, float altValue)
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float altitude = Input.GetAxisRaw("Vertical");
-        rb.useGravity = false;
-
-        bool playFlap = false;
-        
-        if (Input.GetKey(KeyCode.Q) && forwardSpeed > minSpeed)
-        {
-            forwardSpeed -= decel * Time.fixedDeltaTime;
-            animator.SetBool("Flap", true);
-            playFlap = true;
-        }
-        if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
-        {
-            forwardSpeed += accel * Time.fixedDeltaTime;
-            animator.SetBool("Flap", true);
-            playFlap = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
-        {
-            animator.SetBool("Flap", false);
-            playFlap = false;
-        }
-
-        // another way would be to create an aniamtion clip using the Flab aniamtion
-        // then create a public method and put the code below in that method and have the clip call the method at a specific time in the clip
-        if (!audioSource.isPlaying)
-        {
-            if (playFlap)
-            {
-                audioSource.Play();
-            }
-            else
-            {
-                audioSource.Stop();
-            }
-        }
-
-        Vector3 direction = new Vector3(horizontal, altitude);
+        Vector3 direction = new Vector3(horValue, altValue);
         direction.Normalize();
 
         transform.Translate(new Vector3(direction.x * turnSpeed, direction.y * turnSpeed, forwardSpeed) * Time.fixedDeltaTime);
@@ -120,19 +169,10 @@ public class BirdControl : MonoBehaviour
         }
     }
 
-    void GroundControl()
+    void GroundControl(float horValue, float forwardValue)
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float forward = Input.GetAxisRaw("Vertical");
-        rb.useGravity = true;
-        Vector3 direction = new Vector3(horizontal, 0, forward);
+        Vector3 direction = new Vector3(horValue, 0, forwardValue);
         direction.Normalize();
-
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpAmount, rb.velocity.z);
-            onGround = false;
-        }
 
         transform.Translate(direction * groundSpeed * Time.fixedDeltaTime);
         transform.Rotate(0, direction.x * groundRotateSpeed, 0);

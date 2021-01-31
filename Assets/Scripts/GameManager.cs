@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     Goal currentGoal;
-    Transform flock, player;
     bool sweptByStorm;
     // Start is called before the first frame update
     void Start()
@@ -22,9 +21,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentGoal.goalHit)
+        if (currentGoal != null)
         {
+            if (currentGoal.goalHit)
+            {
 
+            }
         }
         if (sweptByStorm)
         {
