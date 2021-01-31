@@ -1810,8 +1810,10 @@ MonoBehaviour:
   rb: {fileID: 4481834382823019274}
   animator: {fileID: 3243064530864088301}
   inAir: 1
-  forwardSpeed: 5
+  forwardSpeed: 10
   turnSpeed: 1
+  minSpeed: 7
+  maxSpeed: 30
   groundSpeed: 1
   groundRotateSpeed: 1
   jumpAmount: 5
