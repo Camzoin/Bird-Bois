@@ -92,14 +92,19 @@ public class BirdControl : MonoBehaviour
             playFlap = false;
         }
 
-        if (playFlap)
+        if (!audioSource.isPlaying)
         {
-            audioSource.Play();
+            if (playFlap)
+            {
+                audioSource.Play();
+            }
+            else
+            {
+                audioSource.Stop();
+            }
+
         }
-        else
-        {
-            audioSource.Stop();
-        }
+
         
         Vector3 direction = new Vector3(horizontal, altitude);
         direction.Normalize();
