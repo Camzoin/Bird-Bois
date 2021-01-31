@@ -18,6 +18,7 @@ public class Storm : MonoBehaviour
     {
         stormSystem = GetComponent<ParticleSystem>();
         skyboxMaterial = RenderSettings.skybox;
+        skyboxMaterial.SetFloat("_Blend", 0);
         skyBoxBlend = 0;
     }
 

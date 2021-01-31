@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 297155110580039230}
   - component: {fileID: 297155110580039226}
-  - component: {fileID: 297155110580039229}
+  - component: {fileID: 8320495182550306173}
   m_Layer: 0
   m_Name: NPC Bird
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3435763268915459665}
+  - {fileID: 5853691430342403997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,24 +45,45 @@ Rigidbody:
   m_Drag: 2
   m_AngularDrag: 4
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &297155110580039229
-BoxCollider:
+--- !u!114 &8320495182550306173
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297155110580039224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &2892701843630526906
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ca149ca43d76b41970a1920c4f6e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  flapMin: 1
+  flapMax: 4
+--- !u!95 &3211952622531063120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518870282965286183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b598a3f7c1cea84181a2aaeb6b2a311, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &6248397217773895798
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -124,21 +145,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d30ab0c2a7ac71b48847f9d9eb63fea4, type: 2}
     - target: {fileID: 919132149155446097, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239,
         type: 3}
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 4162053413923633150, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d30ab0c2a7ac71b48847f9d9eb63fea4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239, type: 3}
---- !u!4 &3435763268915459665 stripped
+--- !u!1 &6518870282965286183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239,
+    type: 3}
+  m_PrefabInstance: {fileID: 6248397217773895798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5853691430342403997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a5ccb539856fc74cb0d1ddc2a6c7239,
     type: 3}
-  m_PrefabInstance: {fileID: 2892701843630526906}
+  m_PrefabInstance: {fileID: 6248397217773895798}
   m_PrefabAsset: {fileID: 0}
