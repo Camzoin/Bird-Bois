@@ -38,10 +38,12 @@ public class BirdControl : MonoBehaviour
         if (inAir)
         {
             AirControl();
+            animator.SetBool("onGround", false);
         }
         else
         {
             GroundControl();
+            animator.SetBool("onGround", true);
         }
 
     }
@@ -95,10 +97,6 @@ public class BirdControl : MonoBehaviour
         {
             rot.eulerAngles = new Vector3(rot.eulerAngles.x, rot.eulerAngles.y, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.fixedDeltaTime);
-        }
-        else
-        {
-
         }
     }
 
