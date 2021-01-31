@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 4.unity
     guid: 686df96dff95d5b4685299214a8fe333
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: 80316a2b8a896194fae2b09919a2850f
   m_configObjects: {}
