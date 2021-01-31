@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CorruptedSkyBox:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 8900000, guid: 250460ef2eac53f4db498878ce7e1aeb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SafeSkyBox:
-        m_Texture: {fileID: 8900000, guid: b40f5bb4765cf514ca11d15a2e6e97cb, type: 3}
+        m_Texture: {fileID: 8900000, guid: 76696d1c6d8d1b947bfe748ad5e745bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
