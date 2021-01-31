@@ -9601,7 +9601,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 51743a44d2adf8a4e93babf097bd2609, type: 3}
   - {fileID: 8300000, guid: 37cacfea8578b604b87896a21e37ddca, type: 3}
   directionalLight: {fileID: 0}
-  stormDelay: 3
+  stormDelay: 30
   track1Source: {fileID: 6924899514300299761}
   track2Source: {fileID: 6924899514300299767}
 --- !u!82 &6924899514300299761
