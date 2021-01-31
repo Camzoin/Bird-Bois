@@ -6,6 +6,7 @@ public class BirdControl : MonoBehaviour
 {
     public Rigidbody rb;
     public Animator animator;
+    public AudioSource audioSource;
     public bool inAir = true;
 
     #region Air Fields
@@ -75,15 +76,18 @@ public class BirdControl : MonoBehaviour
         {
             forwardSpeed -= decel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
+            audioSource.Play();
         }
         if (Input.GetKey(KeyCode.E) && forwardSpeed < maxSpeed)
         {
             forwardSpeed += accel * Time.fixedDeltaTime;
             animator.SetBool("Flap", true);
+            audioSource.Play();
         }
         if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E))
         {
             animator.SetBool("Flap", false);
+            audioSource.Stop();
         }
         
         Vector3 direction = new Vector3(horizontal, altitude);
