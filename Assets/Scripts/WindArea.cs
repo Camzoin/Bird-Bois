@@ -7,7 +7,7 @@ public class WindArea : MonoBehaviour
     [Header("Gust Timing")]
     public float startDelay;
     public float cooldown;
-    public float gustScalar;
+    [Range(0, 10)] public float gustScalar;
     public bool randomizeWind;
     float timer;
     int gustCounter;
@@ -16,10 +16,12 @@ public class WindArea : MonoBehaviour
     public float strength;
     public float strengthMultiplier;
     public Vector3 direction;
+    ParticleSystem windParticles;
 
     protected virtual void Start()
     {
         timer = startDelay;
+        windParticles = GetComponentInChildren<ParticleSystem>();
     }
     protected virtual void Update()
     {
@@ -34,9 +36,10 @@ public class WindArea : MonoBehaviour
                 strength = Random.Range(0f, 1f) * strengthMultiplier;
                 direction = Random.insideUnitSphere;
                 timer = cooldown;
+                windParticles.Play();
                 gustCounter++;
             }
         }
-        strengthMultiplier = Mathf.Sqrt(gustCounter) * gustScalar;
+        strengthMultiplier = Mathf.Pow(gustCounter / gustScalar, 2);
     }
 }
