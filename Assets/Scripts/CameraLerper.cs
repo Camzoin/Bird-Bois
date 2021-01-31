@@ -15,7 +15,7 @@ public class CameraLerper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, cameraTarget.position, Time.deltaTime * 5);
+        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, cameraTarget.position, Time.deltaTime * 15);
 
         transform.LookAt(bird);
     }
